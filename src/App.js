@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 // Screens
-import PrivateScreen from "./components/screens/PrivateScreen";
-import LoginScreen from "./components/screens/LoginScreen";
+import PrivateScreen from "./screens/PrivateScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 const App = () => {
   return (

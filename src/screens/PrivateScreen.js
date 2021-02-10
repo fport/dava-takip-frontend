@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
+import { Navbar } from "../components";
 
 const PrivateScreen = () => {
   const [error, setError] = useState("");
@@ -29,7 +30,9 @@ const PrivateScreen = () => {
   return error ? (
     <span className="error-message">{error}</span>
   ) : (
-    <div>{privateData}</div>
+    <div>
+      <Navbar />
+    </div>
   );
 };
 
