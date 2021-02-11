@@ -7,6 +7,7 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import PrivateScreen from "./screens/PrivateScreen";
 import LoginScreen from "./screens/LoginScreen";
 import AddHırkız from "./screens/AddHırkız";
+import UpdateInfo from "./components/UpdateInfo";
 import Main from "./screens/Main";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <PrivateRoute exact path="/" component={PrivateScreen} />
           <PrivateRoute path="/add" component={AddHırkız} />
           <PrivateRoute path="/main" component={Main} />
+          <PrivateRoute path="/edit" component={UpdateInfo} />
           <Route exact path="/login" component={LoginScreen} />
         </Switch>
       </div>
