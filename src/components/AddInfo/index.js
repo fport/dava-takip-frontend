@@ -3,16 +3,24 @@ import axios from "axios";
 import { Button, Form } from "react-bootstrap";
 
 const AddInfo = () => {
-  const [dava, setDava] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [entrollnumber, setEntrollnumber] = useState("");
 
   const addDava = async (e) => {
     e.preventDefault();
 
     const url = "http://localhost:5000";
 
-    const res = await axios.post(`${url}/api/todo`, {
-      todo: dava,
+    const res = await axios.post(`${url}/api/dava`, {
+      name: name,
+      email: email,
+      entrollnumber: entrollnumber,
     });
+
+    setName("");
+    setEmail("");
+    setEntrollnumber("");
   };
 
   return (
@@ -20,11 +28,23 @@ const AddInfo = () => {
       <div className="container">
         <Form>
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Todo</Form.Label>
+            <Form.Label>Hirsiz ismi - Marka</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              onChange={(e) => setDava(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Form.Label>Design number</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              onChange={(e) => setEntrollnumber(e.target.value)}
             />
           </Form.Group>
           <Button variant="primary" type="submit" onClick={addDava}>

@@ -4,7 +4,6 @@ const AddHırkız = () => {
   return (
     <div>
       <Navbar />
-      <h1>Ekleme Sayfası</h1>
       <AddInfo />
     </div>
   );
