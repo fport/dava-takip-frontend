@@ -1,4 +1,29 @@
-.deneme{
-    color:white;
-    font-size: 1rem !important;
+.form-group {
+    background:#141516;
+    padding:1rem;
+    border-radius:10px;
+}
+
+.containerx {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    padding: 3rem;
+}
+.formlar {
+    display:flex;
+    width: 90%;
+}
+
+.row {
+    display:flex ;
+    width:700px;
+    flex-direction:row;
+}
+
+.grup {
+    display:flex;
+    width:50%;
+    margin: 1rem;
 }

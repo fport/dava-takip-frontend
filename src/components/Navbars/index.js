@@ -9,7 +9,7 @@ const Navbars = () => {
 
   return (
     <>
-      <Navbar className="navbar" variant="dark" expand="lg">
+      <Navbar className="navbar" variant="dark" expand="lg" fixed>
         <Navbar.Brand className="link" href="/">
           DavaTakip
         </Navbar.Brand>

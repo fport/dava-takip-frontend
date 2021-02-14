@@ -32,10 +32,13 @@ const UserTableRow = (props) => {
     <div className="mainContainer">
       <div className="leftPanel">
         <button className="dava-btn" onClick={changeStatex}>
-          Name
+          Hırsızın İsmi / Markası
         </button>
         <button className="dava-btn" onClick={changeState}>
-          Email
+          Ürünler
+        </button>
+        <button className="dava-btn" onClick={changeState}>
+          Hırsızın Kurumsal Bilgileri
         </button>
       </div>
       <div className="rightPanel">
