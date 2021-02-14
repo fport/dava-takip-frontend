@@ -27,10 +27,7 @@ const UserTableRow = (props) => {
   const changeStatex = (e) => {
     setScreen("name");
   };
-  // const deneme = `props.obj.${screen}`;
-  // console.log(deneme);
-
-  console.log(screen);
+  const deneme = `props.obj.${screen}`;
   return (
     <div className="mainContainer">
       <div className="leftPanel">
@@ -43,7 +40,7 @@ const UserTableRow = (props) => {
       </div>
       <div className="rightPanel">
         <div className="content">
-          <div className="data">{props.obj.name}</div>
+          <div className="data">{props.obj[screen]}</div>
           <div className="rightPanelBottom">
             <Link
               className="edit-link btn btn-dark btn-sm mr-1"
