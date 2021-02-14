@@ -10,20 +10,34 @@
   width: 380px;
   padding: 1.5rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #1B1C1D;
 }
 
 .login-screen__title {
   text-align: center;
   margin-bottom: 1rem;
+  color: #1FB79B;
 }
 
-.login-screen__forgotpassword {
-  font-size: 0.7rem;
-}
 
 .login-screen__subtext {
   font-size: 0.7rem;
   display: block;
   margin: 0.5rem 0;
+}
+
+.form-group {
+  color: #1FB79B;
+}
+
+input.input-box, textarea { background: #242425; color: rgba(31, 183, 155,50%); }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #242526 inset;
+  -webkit-text-fill-color: rgba(31,183,155,50%);
+}
+
+.but {
+    background: #101111 !important;
+    color: #1FB79B !important;
 }

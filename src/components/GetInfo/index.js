@@ -31,22 +31,24 @@ const Main = () => {
   };
 
   return (
-    <div>
-      <div className="container">
-        <div className="table-wrapper m-4">
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>{DataTable()}</tbody>
-          </Table>
+    <>
+      <div>
+        <div className="container">
+          <div className="table-wrapper m-4">
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>{DataTable()}</tbody>
+            </Table>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -48,6 +48,7 @@ const LoginScreen = ({ history }) => {
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
+            className="input-box"
             type="email"
             required
             id="email"
@@ -60,6 +61,7 @@ const LoginScreen = ({ history }) => {
         <div className="form-group">
           <label htmlFor="password">Password: </label>
           <input
+            className="input-box"
             type="password"
             required
             id="password"
@@ -70,7 +72,7 @@ const LoginScreen = ({ history }) => {
             tabIndex={2}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn but">
           Login
         </button>
       </form>

@@ -2,3 +2,16 @@
     width:1440px;
     margin-top: 120px;
 }
+
+.navbar {
+    background:#242526 !important;
+}
+
+.link {
+    color:#1FB79B !important;
+}
+
+.logout {
+    background-color: #242526 !important;
+    padding: 1px; 
+}

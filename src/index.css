@@ -1,3 +1,7 @@
+html, body, #app {
+  outline: none !important;
+  background: #282A2C !important;
+}
 * {
   margin: 0;
   padding: 0;

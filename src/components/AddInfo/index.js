@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
+import "./style.css";
 
 const AddInfo = () => {
   const [name, setName] = useState("");
@@ -28,7 +29,7 @@ const AddInfo = () => {
       <div className="container">
         <Form>
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Hirsiz ismi - Marka</Form.Label>
+            <Form.Label className="deneme">Hirsiz ismi - Marka</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
