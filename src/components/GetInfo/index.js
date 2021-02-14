@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
 import UserTableRow from "./UserTableRow";
-import Table from "react-bootstrap/Table";
 
 const Main = () => {
   const [todo, setTodo] = useState({
@@ -34,18 +33,7 @@ const Main = () => {
     <>
       <div>
         <div className="container">
-          <div className="table-wrapper m-4">
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>{DataTable()}</tbody>
-            </Table>
-          </div>
+          <div className="cardx">{DataTable()}</div>
         </div>
       </div>
     </>

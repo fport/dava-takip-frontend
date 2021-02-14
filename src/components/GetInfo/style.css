@@ -4,10 +4,80 @@
 }
 
 .davake {
-    border:1px solid #000;
     background:#1B1C1D;
     color:#fff;
     padding: 10px;
     margin-bottom: 25px;
 }
 
+.cardx {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.mainContainer {
+    display:flex;
+    border: 1px solid #6FCF97;
+    border-radius:10px;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 3rem;
+    padding: 1rem;
+}
+
+.rightPanel {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width:70%;
+    padding:1.5rem;
+    border-radius:10px;
+}
+.leftPanel {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width:30%;
+    background:#1B1C1D;
+    border-radius:10px;
+}
+
+.content {
+    background:#1B1C1D;
+    height: 100%;
+    width: 100%;
+}
+
+.dava-btn {
+    padding: 0.5rem 1.5rem;
+    margin-top:1rem;
+    width:80%;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  font-size: 18px;
+  background-color: #63d0ab;
+  color: #fff;
+  transition: all 0.15s;
+}
+
+.dava-btn:hover {
+    background-color: #54ac8d;
+}
+
+.data {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    color: #54ac8d;
+    height:100%;
+}
+.rightPanelBottom {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    color: #54ac8d;
+}
