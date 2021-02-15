@@ -53,6 +53,7 @@ const UserTableRow = (props) => {
                     key={index}
                     style={{ border: "1px solid green", padding: "0.5rem" }}
                   >
+                    <h5 style={{ color: "white" }}>{data}</h5>
                     <input type="checkbox" checked={props.obj[data]} />
                   </div>
                 ) : (

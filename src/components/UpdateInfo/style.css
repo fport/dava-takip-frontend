@@ -1,3 +1,9 @@
 .container {
     width: 1440px !important;
 }
+.sayfa-bilgilendirme {
+    display:flex;
+    justify-content:center;
+    margin:2rem;
+    color: #4faa8f;
+}

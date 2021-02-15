@@ -4,7 +4,7 @@ import axios from "axios";
 import "./style.css";
 
 const AddInfo = () => {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [name, setName] = useState("");
   const [designnumber, setDesignnumber] = useState("");
   const [designname, setDesignname] = useState("");
@@ -27,6 +27,7 @@ const AddInfo = () => {
       adress: adress,
     });
 
+    setActive(false);
     setName("");
     setDesignnumber("");
     setDesignname("");
@@ -41,6 +42,9 @@ const AddInfo = () => {
 
   return (
     <>
+      <div className="sayfa-bilgilendirme">
+        <h1>Dava Ekleme</h1>
+      </div>
       <div className="containerx">
         <div className="formlar">
           <div className="row">
