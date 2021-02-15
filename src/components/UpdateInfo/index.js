@@ -12,8 +12,13 @@ const EditUser = (props) => {
   const id = pathname.split("/")[2];
 
   const [user, setUser] = useState({
+    active: "",
     name: "",
-    email: "",
+    designnumber: "",
+    designname: "",
+    productlink: "",
+    vergino: "",
+    adress: "",
   });
 
   useEffect(() => {
@@ -21,8 +26,13 @@ const EditUser = (props) => {
     axios.get(`http://localhost:5000/api/dava/${id}`).then((res) => {
       if (isSubscribed) {
         setUser({
+          active: res.active,
           name: res.name,
-          email: res.email,
+          designnumber: res.designnumber,
+          designname: res.designname,
+          productlink: res.productlink,
+          vergino: res.vergino,
+          adress: res.adress,
         });
       }
       return () => (isSubscribed = false);
@@ -76,6 +86,63 @@ const EditUser = (props) => {
                   />
                 </Form.Group>
 
+                <Form.Group controlId="deneme">
+                  <Form.Label className="float-left font-weight-bold text-secondary">
+                    Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={user.adress}
+                    onChange={handleInputs}
+                    name="name"
+                  />
+                </Form.Group>
+                <Form.Group controlId="Name">
+                  <Form.Label className="float-left font-weight-bold text-secondary">
+                    Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={user.name}
+                    onChange={handleInputs}
+                    name="name"
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="deneme">
+                  <Form.Label className="float-left font-weight-bold text-secondary">
+                    Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={user.adress}
+                    onChange={handleInputs}
+                    name="name"
+                  />
+                </Form.Group>
+                <Form.Group controlId="Name">
+                  <Form.Label className="float-left font-weight-bold text-secondary">
+                    Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={user.name}
+                    onChange={handleInputs}
+                    name="name"
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="deneme">
+                  <Form.Label className="float-left font-weight-bold text-secondary">
+                    Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={user.adress}
+                    onChange={handleInputs}
+                    name="name"
+                  />
+                </Form.Group>
                 <Form.Group controlId="Email">
                   <Form.Label className="float-left font-weight-bold text-secondary">
                     Email

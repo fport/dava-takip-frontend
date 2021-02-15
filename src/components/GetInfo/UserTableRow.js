@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import "./style.css";
 
 const UserTableRow = (props) => {
-  const [screen, setScreen] = useState("name");
+  const [screen, setScreen] = useState(["name"]);
 
   const id = props.obj._id;
   const deleteUser = () => {
@@ -21,29 +21,43 @@ const UserTableRow = (props) => {
       });
   };
 
-  const changeState = (e) => {
-    setScreen("email");
+  const changeHirsiz = (e) => {
+    setScreen(["name"]);
   };
-  const changeStatex = (e) => {
-    setScreen("name");
+  const changeUrun = (e) => {
+    setScreen(["designnumber", "designname"]);
   };
-  const deneme = `props.obj.${screen}`;
+  const changeKurumsal = (e) => {
+    setScreen(["productlink", "vergino", "adress"]);
+  };
   return (
     <div className="mainContainer">
       <div className="leftPanel">
-        <button className="dava-btn" onClick={changeStatex}>
+        <button className="dava-btn" onClick={changeHirsiz}>
           Hırsızın İsmi / Markası
         </button>
-        <button className="dava-btn" onClick={changeState}>
+        <button className="dava-btn" onClick={changeUrun}>
           Ürünler
         </button>
-        <button className="dava-btn" onClick={changeState}>
+        <button className="dava-btn" onClick={changeKurumsal}>
           Hırsızın Kurumsal Bilgileri
         </button>
       </div>
       <div className="rightPanel">
         <div className="content">
-          <div className="data">{props.obj[screen]}</div>
+          <div className="data">
+            <div>
+              {screen.map((data, index) => (
+                <div
+                  key={index}
+                  style={{ border: "1px solid green", padding: "0.5rem" }}
+                >
+                  <h5 style={{ color: "white" }}>{data}</h5>
+                  {props.obj[data]}
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="rightPanelBottom">
             <Link
               className="edit-link btn btn-dark btn-sm mr-1"
