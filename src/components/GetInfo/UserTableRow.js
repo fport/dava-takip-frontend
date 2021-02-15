@@ -25,7 +25,7 @@ const UserTableRow = (props) => {
     setScreen(["name"]);
   };
   const changeUrun = (e) => {
-    setScreen(["designnumber", "designname"]);
+    setScreen(["designnumber", "designname", "active"]);
   };
   const changeKurumsal = (e) => {
     setScreen(["productlink", "vergino", "adress"]);
@@ -47,15 +47,24 @@ const UserTableRow = (props) => {
         <div className="content">
           <div className="data">
             <div>
-              {screen.map((data, index) => (
-                <div
-                  key={index}
-                  style={{ border: "1px solid green", padding: "0.5rem" }}
-                >
-                  <h5 style={{ color: "white" }}>{data}</h5>
-                  {props.obj[data]}
-                </div>
-              ))}
+              {screen.map((data, index) =>
+                data == "active" ? (
+                  <div
+                    key={index}
+                    style={{ border: "1px solid green", padding: "0.5rem" }}
+                  >
+                    <input type="checkbox" checked={props.obj[data]} />
+                  </div>
+                ) : (
+                  <div
+                    key={index}
+                    style={{ border: "1px solid green", padding: "0.5rem" }}
+                  >
+                    <h5 style={{ color: "white" }}>{data}</h5>
+                    {props.obj[data]}
+                  </div>
+                )
+              )}
             </div>
           </div>
           <div className="rightPanelBottom">

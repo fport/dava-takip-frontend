@@ -36,7 +36,7 @@ const AddInfo = () => {
   };
 
   const handleOnChange = (e) => {
-    setActive(false);
+    setActive(!active);
   };
 
   return (
@@ -46,14 +46,15 @@ const AddInfo = () => {
           <div className="row">
             <div className="grup">
               <div className="form-group">
+                <div className="aktif-checkbox"></div>
+                <label htmlFor="active">Dava Aktif mi?</label>
                 <input
                   type="checkbox"
                   id="vehicle1"
                   name="vehicle1"
-                  value="Bike"
                   checked={active}
                   onChange={handleOnChange}
-                ></input>
+                />
               </div>
             </div>
             <div className="grup">
@@ -83,7 +84,6 @@ const AddInfo = () => {
                 <input
                   className="input-box"
                   type="text"
-                  required
                   placeholder="design name "
                   onChange={(e) => setDesignname(e.target.value)}
                   value={designname}
@@ -106,6 +106,7 @@ const AddInfo = () => {
                   className="input-box"
                   type="text"
                   value={vergino}
+                  id="vergi"
                   placeholder="Vergi no"
                   onChange={(e) => setVergino(e.target.value)}
                 />
@@ -121,9 +122,11 @@ const AddInfo = () => {
             </div>
           </div>
         </div>
-        <button type="submit" className="btn but" onClick={addDava}>
-          Submit
-        </button>
+        <div className="dava-but">
+          <button type="submit" className="dava-buton" onClick={addDava}>
+            Submit
+          </button>
+        </div>
       </div>
     </>
   );

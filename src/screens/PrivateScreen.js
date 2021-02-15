@@ -5,6 +5,7 @@ import { Navbar } from "../components";
 
 const PrivateScreen = () => {
   const [error, setError] = useState("");
+  // eslint-disable-next-line
   const [privateData, setPrivateData] = useState("");
 
   useEffect(() => {
