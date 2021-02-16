@@ -1,0 +1,7 @@
+.main-cont {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:2rem;
+    color: #4faa8f;
+}

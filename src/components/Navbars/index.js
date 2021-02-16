@@ -9,7 +9,7 @@ const Navbars = () => {
 
   return (
     <>
-      <Navbar className="navbar" variant="dark" expand="lg" fixed>
+      <Navbar className="navbar" variant="dark" expand="lg" sticky="top">
         <Navbar.Brand className="link" href="/">
           DavaTakip
         </Navbar.Brand>
@@ -26,7 +26,7 @@ const Navbars = () => {
           <Form inline>
             <Link to="/login">
               <button className="logout link" onClick={logoutBaby}>
-                Logout
+                Çıkış Yap
               </button>
             </Link>
           </Form>

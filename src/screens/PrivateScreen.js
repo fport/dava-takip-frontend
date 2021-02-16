@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
-import { Navbar } from "../components";
+import { Main, Navbar } from "../components";
 
 const PrivateScreen = () => {
   const [error, setError] = useState("");
@@ -33,6 +33,7 @@ const PrivateScreen = () => {
   ) : (
     <div>
       <Navbar />
+      <Main />
     </div>
   );
 };
