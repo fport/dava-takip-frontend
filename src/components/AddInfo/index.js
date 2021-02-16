@@ -25,9 +25,7 @@ const AddInfo = () => {
   const addDava = async (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:5000";
-
-    await axios.post(`${url}/api/dava`, {
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/dava`, {
       active: dava.active,
       name: dava.name,
       designnumber: dava.designnumber,

@@ -7,3 +7,19 @@
     margin:2rem;
     color: #4faa8f;
 }
+
+.info {
+    display:flex;
+    justify-content: flex-start;
+    border: 1px solid #4faa8f;
+    border-radius: 5px;
+    margin:0.5rem;
+    padding:0.2rem;
+    width:100%;
+}
+
+.info-text {
+    display:flex;
+    margin-left:0.2rem;
+
+}

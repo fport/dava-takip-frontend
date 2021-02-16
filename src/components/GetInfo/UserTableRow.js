@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -11,7 +10,7 @@ const UserTableRow = (props) => {
   const id = props.obj._id;
   const deleteUser = () => {
     axios
-      .delete(`http://localhost:5000/api/dava/${id}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/dava/${id}`)
       .then((res) => {
         console.log("User deleted successfully");
         window.location.reload(true);
@@ -22,13 +21,26 @@ const UserTableRow = (props) => {
   };
 
   const changeHirsiz = (e) => {
-    setScreen(["name"]);
+    setScreen(["active", "name"]);
   };
   const changeUrun = (e) => {
-    setScreen(["designnumber", "designname", "active"]);
+    setScreen(["designnumber", "designname", "productlink"]);
   };
   const changeKurumsal = (e) => {
-    setScreen(["productlink", "vergino", "adress"]);
+    setScreen([
+      "vergino",
+      "adress",
+      "ticarisicil",
+      "telefonno",
+      "email",
+      "domainregistrantaddress",
+      "tpekayitlimarka",
+      "notlar",
+    ]);
+  };
+
+  const changeTasarım = (e) => {
+    setScreen(["calinantasarim", "sergilendigiyer", "tahminisatis"]);
   };
   return (
     <div className="mainContainer">
@@ -42,27 +54,28 @@ const UserTableRow = (props) => {
         <button className="dava-btn" onClick={changeKurumsal}>
           Hırsızın Kurumsal Bilgileri
         </button>
+        <button className="dava-btn" onClick={changeTasarım}>
+          Tasarım Bilgileri
+        </button>
       </div>
       <div className="rightPanel">
         <div className="content">
           <div className="data">
             <div>
               {screen.map((data, index) =>
-                data == "active" ? (
-                  <div
-                    key={index}
-                    style={{ border: "1px solid green", padding: "0.5rem" }}
-                  >
-                    <h5 style={{ color: "white" }}>{data}</h5>
-                    <input type="checkbox" checked={props.obj[data]} />
+                data === "active" ? (
+                  <div key={index} className="info">
+                    <h5 className="info-text">{data} : </h5>
+                    <input
+                      className="info-text"
+                      type="checkbox"
+                      checked={props.obj[data]}
+                    />
                   </div>
                 ) : (
-                  <div
-                    key={index}
-                    style={{ border: "1px solid green", padding: "0.5rem" }}
-                  >
-                    <h5 style={{ color: "white" }}>{data}</h5>
-                    {props.obj[data]}
+                  <div key={index} className="info">
+                    <h5 className="info-text">{data} : </h5>
+                    <div className="info-text">{props.obj[data]}</div>
                   </div>
                 )
               )}

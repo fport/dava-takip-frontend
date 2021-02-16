@@ -14,7 +14,7 @@ const Main = () => {
 
   const fetchTodo = async () => {
     let isSubscribed = true;
-    await axios.get(`http://localhost:5000/api/dava`).then((res) => {
+    await axios.get(`${process.env.REACT_APP_API_URL}/api/dava`).then((res) => {
       if (isSubscribed) {
         setTodo({
           dava: res.data.dava,
