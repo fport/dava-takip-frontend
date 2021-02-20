@@ -83,3 +83,22 @@
     height:10%;
     padding: 0.25rem;
 }
+
+.social {
+    display: flex;
+    flex-direction:column;
+    margin: 0.4rem;
+    padding: 0.4rem;
+    border: 1px solid #6FCF97;
+    border-radius:10px;
+}
+
+.social-checkbox {
+    display:flex;
+    align-items:center;
+}
+
+.social-input {
+    display:flex;
+    margin:0 0.4rem;
+}

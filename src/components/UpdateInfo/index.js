@@ -5,11 +5,11 @@ import "./style.css";
 import { Navbar } from "../index";
 import { Container, Row, Col } from "react-bootstrap";
 
-
 const EditUser = (props) => {
   const pathname = props.location.pathname;
   const id = pathname.split("/")[2];
 
+  const [selectedDropdown, setSelectedDropDown] = useState({});
   const [dava, setDava] = useState({
     active: false,
     name: "",
@@ -27,6 +27,7 @@ const EditUser = (props) => {
     calinantasarim: "",
     sergilendigiyer: "",
     tahminisatis: "",
+    social: [],
   });
 
   useEffect(() => {
@@ -48,6 +49,7 @@ const EditUser = (props) => {
         calinantasarim: res.data.student.calinantasarim,
         sergilendigiyer: res.data.student.sergilendigiyer,
         tahminisatis: res.data.student.tahminisatis,
+        social: res.data.student.social,
       });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,6 +75,7 @@ const EditUser = (props) => {
       calinantasarim: dava.calinantasarim,
       sergilendigiyer: dava.sergilendigiyer,
       tahminisatis: dava.tahminisatis,
+      social: dava.social,
     };
     axios
       .put(`${process.env.REACT_APP_API_URL}/api/dava/${id}`, userObject)
@@ -102,6 +105,21 @@ const EditUser = (props) => {
       active: reverse,
     }));
   };
+
+  const onAddBtnClick = () => {
+    const newSocial = dava.social;
+    newSocial.push({
+      id: selectedDropdown.value,
+      title: selectedDropdown.title,
+      input: "",
+      checkBox1: false,
+      checkBox2: false,
+    });
+    setDava({
+      ...dava,
+      social: newSocial,
+    });
+  };
   return (
     <>
       <Navbar />
@@ -109,9 +127,9 @@ const EditUser = (props) => {
         <h1>Dava Güncelleme</h1>
       </div>
       <div className="containerx">
-          <div className="row">
-              <Container>
-              <Row>
+        <div className="row">
+          <Container>
+            <Row>
               <Col>
                 <div className="grup">
                   <div className="form-group">
@@ -140,37 +158,115 @@ const EditUser = (props) => {
                   </div>
                 </div>
 
-            <div className="grup">
-            <div className="form-group">
-              <label htmlFor="adress">Calinan Tasarım</label>
-              <input
-                className="input-box"
-                type="text"
-                placeholder="calinantasarim"
-                name="calinantasarim"
-                onChange={handleChange}
-                value={dava.calinantasarim}
-              />
-              <label htmlFor="adress">sergilendigiyer</label>
-              <input
-                className="input-box"
-                type="text"
-                placeholder="sergilendigiyer"
-                name="sergilendigiyer"
-                onChange={handleChange}
-                value={dava.sergilendigiyer}
-              />
-              <label htmlFor="adress">tahminisatis</label>
-              <input
-                className="input-box"
-                type="text"
-                placeholder="tahminisatis"
-                name="tahminisatis"
-                onChange={handleChange}
-                value={dava.tahminisatis}
-              />
-            </div>
-          </div>
+                <div className="grup">
+                  <div className="form-group">
+                    <label htmlFor="adress">Calinan Tasarım</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="calinantasarim"
+                      name="calinantasarim"
+                      onChange={handleChange}
+                      value={dava.calinantasarim}
+                    />
+                    <label htmlFor="adress">sergilendigiyer</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="sergilendigiyer"
+                      name="sergilendigiyer"
+                      onChange={handleChange}
+                      value={dava.sergilendigiyer}
+                    />
+                    <label htmlFor="adress">tahminisatis</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="tahminisatis"
+                      name="tahminisatis"
+                      onChange={handleChange}
+                      value={dava.tahminisatis}
+                    />
+                  </div>
+                </div>
+                <div className="grup">
+                  <div className="form-group">
+                    <label htmlFor="active">Sosyal Medya</label>
+                    <div className="social-dropdown">
+                      <select
+                        onChange={(e) => {
+                          setSelectedDropDown({
+                            value: e.target.value,
+                            title: e.target[e.target.value].innerText,
+                          });
+                        }}
+                      >
+                        <option value="0"></option>
+                        <option value="1">Facebook</option>
+                        <option value="2">Twitter</option>
+                        <option value="3">Instagram</option>
+                        <option value="4">Pinterest</option>
+                        <option value="5">Trendyol</option>
+                        <option value="6">N11</option>
+                        <option value="7">EPTTAVM</option>
+                        <option value="8">Gittigidiyor</option>
+                        <option value="9">Hepsiburada</option>
+                        <option value="10">Çiçeksepeti</option>
+                        <option value="11">Aliexpress</option>
+                        <option value="12">Amazon Amerika</option>
+                        <option value="13">Amazon Ingiltere</option>
+                        <option value="14">Amazon Ispanya</option>
+                        <option value="15">Amazon İtalya</option>
+                        <option value="16">Amazon Almanya</option>
+                        <option value="17">Amazon Fransa</option>
+                        <option value="18">Amazon Fransa</option>
+                        <option value="19">Amazon Fransa</option>
+                        <option value="20">Etsy</option>
+                        <option value="21">Ebay Amerika</option>
+                        <option value="22">Ebay İngiltere</option>
+                      </select>
+                      <button onClick={onAddBtnClick}>Ekle</button>
+                    </div>
+
+                    {dava.social.map((media) => (
+                      <div key={media.id} className="social">
+                        <label htmlFor="adress">{media.title}</label>
+                        <input
+                          className="input-box"
+                          type="text"
+                          placeholder={media.title}
+                          name={`input${media.id}`}
+                          value={media.input}
+                          onChange={(e) => {
+                            media.input = e.target.value;
+                          }}
+                        />
+                        <div className="social-checkbox">
+                          <label htmlFor="adress">Hesabı mevcut</label>
+                          <input
+                            type="checkbox"
+                            id="vehicle1"
+                            name={`checkBox1${media.id}`}
+                            checked={media.checkBox1}
+                            onChange={(e) =>
+                              (media.checkBox1 = !media.checkBox1)
+                            }
+                          />
+                          <label htmlFor="adress">Bizim sergilenmiş</label>
+                          <input
+                            type="checkbox"
+                            id="vehicle1"
+                            name={`checkBox2${media.id}`}
+                            checked={media.checkBox2}
+                            onChange={(e) =>
+                              (media.checkBox2 = !media.checkBox2)
+                            }
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </Col>
               <Col>
                 <div className="grup">
@@ -206,86 +302,85 @@ const EditUser = (props) => {
                   </div>
                 </div>
                 <div className="grup">
-                <div className="form-group">
-                  <label htmlFor="vergino">Vergi no</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    id="vergi"
-                    placeholder="Vergi no"
-                    name="vergino"
-                    onChange={handleChange}
-                    value={dava.vergino}
-                  />
-                  <label htmlFor="adress">Adress</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="Adress"
-                    name="adress"
-                    onChange={handleChange}
-                    value={dava.adress}
-                  />
-                  <label htmlFor="adress">Ticari Sicil No</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="Ticari Sicil No"
-                    name="ticarisicil"
-                    onChange={handleChange}
-                    value={dava.ticarisicil}
-                  />
-                  <label htmlFor="adress">Telefon No</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="Telefon No"
-                    name="telefonno"
-                    onChange={handleChange}
-                    value={dava.telefonno}
-                  />
-                  <label htmlFor="adress">Email</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="email"
-                    name="email"
-                    onChange={handleChange}
-                    value={dava.email}
-                  />
-                  <label htmlFor="adress">Domain Registrant Address</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="domainregistrantaddress"
-                    name="domainregistrantaddress"
-                    onChange={handleChange}
-                    value={dava.domainregistrantaddress}
-                  />
-                  <label htmlFor="adress">TPE Kayıtlı Marka</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="tpekayitlimarka"
-                    name="tpekayitlimarka"
-                    onChange={handleChange}
-                    value={dava.tpekayitlimarka}
-                  />
-                  <label htmlFor="adress">notlar</label>
-                  <input
-                    className="input-box"
-                    type="text"
-                    placeholder="notlar"
-                    name="notlar"
-                    onChange={handleChange}
-                    value={dava.notlar}
-                  />
+                  <div className="form-group">
+                    <label htmlFor="vergino">Vergi no</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      id="vergi"
+                      placeholder="Vergi no"
+                      name="vergino"
+                      onChange={handleChange}
+                      value={dava.vergino}
+                    />
+                    <label htmlFor="adress">Adress</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="Adress"
+                      name="adress"
+                      onChange={handleChange}
+                      value={dava.adress}
+                    />
+                    <label htmlFor="adress">Ticari Sicil No</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="Ticari Sicil No"
+                      name="ticarisicil"
+                      onChange={handleChange}
+                      value={dava.ticarisicil}
+                    />
+                    <label htmlFor="adress">Telefon No</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="Telefon No"
+                      name="telefonno"
+                      onChange={handleChange}
+                      value={dava.telefonno}
+                    />
+                    <label htmlFor="adress">Email</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="email"
+                      name="email"
+                      onChange={handleChange}
+                      value={dava.email}
+                    />
+                    <label htmlFor="adress">Domain Registrant Address</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="domainregistrantaddress"
+                      name="domainregistrantaddress"
+                      onChange={handleChange}
+                      value={dava.domainregistrantaddress}
+                    />
+                    <label htmlFor="adress">TPE Kayıtlı Marka</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="tpekayitlimarka"
+                      name="tpekayitlimarka"
+                      onChange={handleChange}
+                      value={dava.tpekayitlimarka}
+                    />
+                    <label htmlFor="adress">notlar</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      placeholder="notlar"
+                      name="notlar"
+                      onChange={handleChange}
+                      value={dava.notlar}
+                    />
+                  </div>
                 </div>
-              </div>
               </Col>
             </Row>
-                  </Container>
-    
+          </Container>
         </div>
         <div className="dava-but">
           <Button variant="dark" size="lg" block="block" onClick={onEdit}>

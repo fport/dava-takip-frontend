@@ -7,7 +7,9 @@ import "./style.css";
 const UserTableRow = (props) => {
   const [screen, setScreen] = useState(["name"]);
 
+  const soc = props.obj.social;
   const id = props.obj._id;
+
   const deleteUser = () => {
     axios
       .delete(`${process.env.REACT_APP_API_URL}/api/dava/${id}`)
@@ -42,6 +44,11 @@ const UserTableRow = (props) => {
   const changeTasarım = (e) => {
     setScreen(["calinantasarim", "sergilendigiyer", "tahminisatis"]);
   };
+
+  const changeSosyal = (e) => {
+    setScreen(["socail"]);
+  };
+
   return (
     <div className="mainContainer">
       <div className="leftPanel">
@@ -57,6 +64,9 @@ const UserTableRow = (props) => {
         <button className="dava-btn" onClick={changeTasarım}>
           Tasarım Bilgileri
         </button>
+        <button className="dava-btn" onClick={changeSosyal}>
+          Sosyal
+        </button>
       </div>
       <div className="rightPanel">
         <div className="content">
@@ -71,6 +81,28 @@ const UserTableRow = (props) => {
                       type="checkbox"
                       checked={props.obj[data]}
                     />
+                  </div>
+                ) : data === "socail" ? (
+                  <div key={index}>
+                    {soc.map((media) => (
+                      <div key={media.id} className="social">
+                        <a href={media.input}>{media.title}</a>
+                        <div className="social-checkbox">
+                          <label htmlFor="adress">Hesabı mevcut</label>
+                          <input
+                            className="social-input"
+                            type="checkbox"
+                            checked={media.checkBox1}
+                          />
+                          <label htmlFor="adress">Bizim sergilenmiş</label>
+                          <input
+                            className="social-input"
+                            type="checkbox"
+                            checked={media.checkBox2}
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 ) : (
                   <div key={index} className="info">
