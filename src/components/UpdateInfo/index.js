@@ -228,15 +228,14 @@ const EditUser = (props) => {
                       <button onClick={onAddBtnClick}>Ekle</button>
                     </div>
 
-                    {dava.social.map((media) => (
+                    {dava.social.map((media,index) => (
                       <div key={media.id} className="social">
                         <label htmlFor="adress">{media.title}</label>
                         <input
                           className="input-box"
                           type="text"
                           placeholder={media.title}
-                          name={`input${media.id}`}
-                          value={media.input}
+ defaultValue={media.input}
                           onChange={(e) => {
                             media.input = e.target.value;
                           }}
@@ -246,8 +245,7 @@ const EditUser = (props) => {
                           <input
                             type="checkbox"
                             id="vehicle1"
-                            name={`checkBox1${media.id}`}
-                            checked={media.checkBox1}
+                            defaultChecked={media.checkBox1}
                             onChange={(e) =>
                               (media.checkBox1 = !media.checkBox1)
                             }
@@ -256,8 +254,8 @@ const EditUser = (props) => {
                           <input
                             type="checkbox"
                             id="vehicle1"
+                            defaultChecked={media.checkBox2}
                             name={`checkBox2${media.id}`}
-                            checked={media.checkBox2}
                             onChange={(e) =>
                               (media.checkBox2 = !media.checkBox2)
                             }
